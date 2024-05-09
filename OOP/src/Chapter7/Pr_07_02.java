@@ -12,12 +12,14 @@ public class Pr_07_02
 
         for (int i = 0; i < 5; i++)
         {
-            System.out.print("Enter a score(A/B/C/D/F): ");
-            String score = input.nextLine();
+
+
         }
 
         for (int i = 0; i < 5; i++)
         {
+            System.out.print("Enter a score(A/B/C/D/F): ");
+
             String grade = list.get(i);
             double gradeScore = 0.0;
             if (grade.equals("A"))
