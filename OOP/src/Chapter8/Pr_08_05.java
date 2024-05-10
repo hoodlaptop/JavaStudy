@@ -23,7 +23,7 @@ public class Pr_08_05 extends JFrame
             labels[i].setOpaque(true);
             labels[i].setBackground(color[i]);
         }
-        add(new JLabel())
+        add(new JLabel());
     }
 
     public static void main(String[] args)
