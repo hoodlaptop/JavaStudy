@@ -10,6 +10,9 @@ public class Ch_8_Assignment_02 extends JFrame
         setTitle("계산기");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        Container container = getContentPane();
+        container.setLayout(new BorderLayout());
+
         JPanel textfield = new JPanel();
         textfield.setLayout(new FlowLayout());
         textfield.setBackground(Color.GRAY);
@@ -44,8 +47,7 @@ public class Ch_8_Assignment_02 extends JFrame
         setSize(400, 300);
         setVisible(true);
 
-        Container container = getContentPane();
-        container.setLayout(new BorderLayout());
+
         container.add(textfield, BorderLayout.NORTH);
         container.add(button, BorderLayout.CENTER);
     }
