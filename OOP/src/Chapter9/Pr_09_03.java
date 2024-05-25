@@ -26,6 +26,7 @@ public class Pr_09_03 extends JFrame
 
     class MyMouseListener extends MouseAdapter
     {
+        @Override
         public void mousePressed(MouseEvent e)
         {
             getContentPane().setBackground(Color.YELLOW);
