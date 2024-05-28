@@ -72,8 +72,6 @@ public class Ch_9_Assignment_01 extends JFrame
         {
             if(e.getSource() == start)
             {
-                JButton start = (JButton) e.getSource();
-
                 first.setText((int)(Math.random()*5)+"");
                 first.setBackground(new Color((int)(Math.random()*255), (int)(Math.random()*255),(int)(Math.random()*255)));
                 second.setText((int)(Math.random()*5)+"");
