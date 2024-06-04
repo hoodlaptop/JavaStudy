@@ -26,7 +26,8 @@ public class Ch_10_Assignment_01 extends JFrame
         JMenu screenMenu = new JMenu("Screen");
 
         MenuActionListener listener = new MenuActionListener();
-        for (int i = 0; i < menuItems.length; i++) {
+        for (int i = 0; i < menuItems.length; i++)
+        {
             menuItems[i] = new JMenuItem(itemNames[i]);
             menuItems[i].addActionListener(listener);
             screenMenu.add(menuItems[i]);
@@ -46,7 +47,11 @@ public class Ch_10_Assignment_01 extends JFrame
                     imgLabel.setIcon(new ImageIcon("OOP/images/img.jpg"));
                     break;
                 case "Change":
-                    imgLabel.setIcon(new ImageIcon("OOP/images/mango.jpg"));
+                    String input = JOptionPane.showInputDialog(
+                            Ch_10_Assignment_01.this,
+                            "경로를 입력하세요"
+                    );
+                    imgLabel.setIcon(new ImageIcon(input));
                     break;
                 case "Hide":
                     imgLabel.setVisible(false);
@@ -62,9 +67,8 @@ public class Ch_10_Assignment_01 extends JFrame
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE
                     );
-                    if (response == JOptionPane.YES_OPTION) {
+                    if (response == JOptionPane.YES_OPTION)
                         System.exit(0);
-                    }
                     break;
             }
         }
