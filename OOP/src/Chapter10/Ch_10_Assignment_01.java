@@ -12,7 +12,7 @@ public class Ch_10_Assignment_01 extends JFrame
     {
         setTitle("Ch_10_Assignment_01");
         createMenu();
-        getContentPane().add(imgLabel, BorderLayout.CENTER);
+        add(imgLabel, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(250, 200);
         setVisible(true);
