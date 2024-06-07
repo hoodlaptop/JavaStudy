@@ -24,7 +24,7 @@ public class VibratingFrame extends JFrame implements Runnable
         });
 
         th = new Thread(this);
-        th.start(); // 진동 시작
+        th.start();
     }
 
     @Override
@@ -45,7 +45,9 @@ public class VibratingFrame extends JFrame implements Runnable
         }
     }
 
-    public static void main(String [] args) {
+    public static void main(String [] args)
+    {
         new VibratingFrame();
+
     }
 }
