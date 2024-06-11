@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Ch_11_Assignment_01 extends JFrame {
+public class Ch_11_Assignment_01 extends JFrame
+{
     private MyPanel panel = new MyPanel();
     private Image img = null; // 초기화할 때 이미지를 null로 설정
     private int imgWidth, imgHeight;
@@ -24,51 +25,8 @@ public class Ch_11_Assignment_01 extends JFrame {
         setVisible(true);
     }
 
-    private class MyPanel extends JPanel {
-        @Override
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            if (img != null) {
-                g.drawImage(img, 10, 10, imgWidth, imgHeight, this);
-            }
-            if (start != null && end != null) {
-                g.setColor(circleColor);
-                int x = Math.min(start.x, end.x);
-                int y = Math.min(start.y, end.y);
-                int width = Math.abs(start.x - end.x);
-                int height = Math.abs(start.y - end.y);
-                g.drawOval(x, y, width, height);
-            }
-            if (drawPrimary3) {
-                drawDividedCircle(g, 3);
-            }
-            if (drawPrimary4) {
-                drawDividedCircle(g, 4);
-            }
-        }
-
-        private void drawDividedCircle(Graphics g, int sections) {
-            int diameter = 100;
-            int x = (getWidth() - diameter) / 2;
-            int y = (getHeight() - diameter) / 2;
-            for (int i = 0; i < sections; i++) {
-                g.setColor(getColorForIndex(i, sections));
-                g.fillArc(x, y, diameter, diameter, i * 360 / sections, 360 / sections);
-            }
-        }
-
-        private Color getColorForIndex(int index, int total) {
-            switch (index) {
-                case 0: return Color.RED;
-                case 1: return Color.YELLOW;
-                case 2: return Color.BLUE;
-                case 3: return Color.GREEN;
-                default: return Color.BLACK;
-            }
-        }
-    }
-
-    private void createMenu() {
+    private void createMenu()
+    {
         JMenuBar menuBar = new JMenuBar();
         JMenu imageMenu = new JMenu("Image Change");
         JMenu drawCircleMenu = new JMenu("Draw Circle Mouse");
@@ -120,10 +78,12 @@ public class Ch_11_Assignment_01 extends JFrame {
         setJMenuBar(menuBar);
     }
 
-    private class MenuActionListener implements ActionListener {
+    private class MenuActionListener implements ActionListener
+    {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
-            switch (command) {
+            switch (command)
+            {
                 case "Image Load":
                     img = new ImageIcon("OOP/images/apple.jpg").getImage();
                     imgWidth = img.getWidth(panel);
@@ -146,18 +106,12 @@ public class Ch_11_Assignment_01 extends JFrame {
                     break;
                 case "RED":
                     circleColor = Color.RED;
-                    drawPrimary3 = false;
-                    drawPrimary4 = false;
                     break;
                 case "BLUE":
                     circleColor = Color.BLUE;
-                    drawPrimary3 = false;
-                    drawPrimary4 = false;
                     break;
                 case "YELLOW":
                     circleColor = Color.YELLOW;
-                    drawPrimary3 = false;
-                    drawPrimary4 = false;
                     break;
                 case "Clear":
                     start = null;
@@ -181,26 +135,85 @@ public class Ch_11_Assignment_01 extends JFrame {
         }
     }
 
-    private class MyMouseListener extends MouseAdapter {
+    private class MyPanel extends JPanel
+    {
         @Override
-        public void mousePressed(MouseEvent e) {
+        public void paintComponent(Graphics g)
+        {
+            super.paintComponent(g);
+            if (img != null)
+            {
+                g.drawImage(img, 10, 10, imgWidth, imgHeight, this);
+            }
+            if (start != null && end != null)
+            {
+                g.setColor(circleColor);
+                int x = Math.min(start.x, end.x);
+                int y = Math.min(start.y, end.y);
+                int width = Math.abs(start.x - end.x);
+                int height = Math.abs(start.y - end.y);
+                g.drawOval(x, y, width, height);
+            }
+            if (drawPrimary3)
+            {
+                drawDividedCircle(g, 3);
+            }
+            if (drawPrimary4)
+            {
+                drawDividedCircle(g, 4);
+            }
+        }
+
+        private void drawDividedCircle(Graphics g, int sections)
+        {
+            int diameter = 100;
+            int x = (getWidth() - diameter) / 2;
+            int y = (getHeight() - diameter) / 2;
+            for (int i = 0; i < sections; i++)
+            {
+                g.setColor(getColorForIndex(i, sections));
+                g.fillArc(x, y, diameter, diameter, i * 360 / sections, 360 / sections);
+            }
+        }
+
+        private Color getColorForIndex(int index, int total)
+        {
+            switch (index)
+            {
+                case 0: return Color.RED;
+                case 1: return Color.YELLOW;
+                case 2: return Color.BLUE;
+                case 3: return Color.GREEN;
+                default: return Color.BLACK;
+            }
+        }
+    }
+
+    private class MyMouseListener extends MouseAdapter
+    {
+        @Override
+        public void mousePressed(MouseEvent e)
+        {
             start = e.getPoint();
         }
 
         @Override
-        public void mouseDragged(MouseEvent e) {
+        public void mouseDragged(MouseEvent e)
+        {
             end = e.getPoint();
             panel.repaint();
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public void mouseReleased(MouseEvent e)
+        {
             end = e.getPoint();
             panel.repaint();
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Ch_11_Assignment_01 frame = new Ch_11_Assignment_01();
         frame.panel.addMouseListener(frame.new MyMouseListener());
         frame.panel.addMouseMotionListener(frame.new MyMouseListener());
