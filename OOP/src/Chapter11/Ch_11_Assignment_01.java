@@ -152,7 +152,7 @@ public class Ch_11_Assignment_01 extends JFrame
                 int y = Math.min(start.y, end.y);
                 int width = Math.abs(start.x - end.x);
                 int height = Math.abs(start.y - end.y);
-                g.drawOval(x, y, width, height);
+                g.drawOval(x, y, width,  height);
             }
             if (drawPrimary3)
             {
